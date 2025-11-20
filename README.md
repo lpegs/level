@@ -45,6 +45,21 @@ A roguelike game inspired by Vampire Survivors, built with Next.js and TypeScrip
 - Different enemy types have varying health, speed, and damage
 - Survive as long as you can!
 
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on deploying to Vercel.
+
+**Quick Deploy:**
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+**Important**: For multiplayer functionality in production, you may need to deploy the Socket.IO server separately (see DEPLOYMENT.md).
+
 ## Tech Stack
 
 - Next.js 15
@@ -52,6 +67,7 @@ A roguelike game inspired by Vampire Survivors, built with Next.js and TypeScrip
 - TypeScript
 - Tailwind CSS
 - Canvas API for rendering
+- Socket.IO (for multiplayer)
 
 ## Project Structure
 

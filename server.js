@@ -3,8 +3,8 @@ const { Server } = require('socket.io');
 const next = require('next');
 
 const dev = process.env.NODE_ENV !== 'production';
-const hostname = 'localhost';
-const port = 3000;
+const hostname = process.env.HOSTNAME || 'localhost';
+const port = parseInt(process.env.PORT || '3000', 10);
 
 const app = next({ dev, hostname, port });
 const handler = app.getRequestHandler();
@@ -25,9 +25,11 @@ app.prepare().then(() => {
   
   const io = new Server(httpServer, {
     cors: {
-      origin: "*",
-      methods: ["GET", "POST"]
-    }
+      origin: process.env.CORS_ORIGIN || "*",
+      methods: ["GET", "POST"],
+      credentials: true
+    },
+    transports: ['websocket', 'polling']
   });
 
   // Game state loop - runs every 100ms (10 ticks per second) - reduced for less lag
