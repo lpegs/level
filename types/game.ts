@@ -25,6 +25,7 @@ export interface Player extends Entity {
 }
 
 export interface Enemy extends Entity {
+  id?: string;
   speed: number;
   damage: number;
   xpValue: number;
