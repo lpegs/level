@@ -33,6 +33,10 @@ export interface Enemy extends Entity {
   slowedUntil?: number;
   burningDamage?: number;
   burningDuration?: number;
+  isBurning?: boolean;
+  burnEndTime?: number;
+  isSlowed?: boolean;
+  slowEndTime?: number;
 }
 
 export enum EnemyType {
